@@ -677,4 +677,15 @@ export class AgentRuntime {
   }
 }
 
-export * from './external-model.js';
+export {
+  createExternalAgentModelProvider,
+  externalModelInvocationSchemaVersion,
+  readOnlyAgentReviewSchemaVersion,
+  requestReadOnlyAgentReview
+} from './external-model.js';
+export type {
+  ExternalModelCompletion,
+  ExternalModelInvocation,
+  ExternalModelInvoker,
+  ReadOnlyAgentReview
+} from './external-model.js';
