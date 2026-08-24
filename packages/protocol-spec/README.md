@@ -2,7 +2,7 @@
 
 墨境公开中立规范制品：协议 `1.0.0` 的 Schema、生成类型、兼容规则、验证规则、固定样例和运行时验证器。包根公共出口只包含中立协议 metadata、类型与验证器，不包含网关、能力路由、Agent Runtime、Adapter SDK、正式批准、正式写入、密钥、商业策略或权威数据能力。
 
-当前仓库已完成制品准备与本地隔离验证；产品所有者已授权将八个开放制品发布到指定的公开 GitHub 仓库，但目标地址尚未提供，实际发布尚未发生。`private: true` 继续防止误发 npm 注册源；`license: Apache-2.0` 记录决策 19 对墨境原创制品的许可证裁决，不等于已经发布。
+当前仓库已完成制品准备与本地隔离验证，源码现已发布于 `https://github.com/brotecher/brotech`。`private: true` 继续防止未授权的 npm 注册源发布；`license: Apache-2.0` 记录决策 19 对墨境原创制品的许可证裁决。
 
 ## Authoritative source
 
