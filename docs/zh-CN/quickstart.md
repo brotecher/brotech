@@ -32,6 +32,20 @@
 
 ## 第一次运行
 
+### 产品所有者无代码验收
+
+你不需要安装开发工具或输入命令：
+
+1. 打开 [墨境一键验收](https://github.com/brotecher/brotech/actions/workflows/owner-acceptance.yml)。
+2. 点击 **Run workflow**，再确认一次 **Run workflow**。
+3. 等待绿色对勾，打开运行记录的 **Summary**。
+4. 确认页面显示“✅ 墨境公开制品验收通过”。
+5. 如需留档，在页面底部下载名为 `mojing-owner-acceptance-运行编号` 的证据包。
+
+如果出现红色叉号，展开第一个红色步骤即可看到失败原因。该流程不要求凭据，也不会访问或写入正式数据。
+
+### 开发者本地验收
+
 安装 Node.js 24.19.0 和 pnpm 11.21.0，然后执行：
 
 ```sh

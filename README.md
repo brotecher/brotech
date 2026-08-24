@@ -13,6 +13,17 @@
 
 ## 五分钟运行
 
+### 不写代码：在网页点一次完成验收
+
+1. 打开 [GitHub Actions 的“墨境一键验收”页面](https://github.com/brotecher/brotech/actions/workflows/owner-acceptance.yml)。
+2. 点击右侧 **Run workflow**，再点击绿色的 **Run workflow**。
+3. 等待运行结果变成绿色，然后打开该次运行的 **Summary**。
+4. 看到“✅ 墨境公开制品验收通过”即表示验证成功；页面底部还可以下载中文验收证据。
+
+这个流程只读取公开源码和合成数据，不需要你填写密钥，也不会写入正式数据。
+
+### 开发者：在本地运行
+
 需要 Node.js 24.19.0 和 pnpm 11.21.0：
 
 ```sh

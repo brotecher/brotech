@@ -1,0 +1,85 @@
+name: 墨境一键验收
+run-name: 产品所有者一键验收
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: 无代码公开仓库验收
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: 获取公开仓库
+        uses: actions/checkout@v6
+
+      - name: 准备 Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24.19.0
+
+      - name: 准备 pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@11.21.0 --activate
+
+      - name: 安装公开依赖
+        run: pnpm install --ignore-scripts --no-frozen-lockfile
+
+      - name: 构建八个开放制品
+        run: pnpm run build
+
+      - name: 运行公开测试和类型检查
+        run: |
+          pnpm test
+          pnpm run typecheck
+
+      - name: 运行最小 Agent 和适配器
+        run: |
+          mkdir -p evidence
+          node examples/minimal-agent.mjs > evidence/agent-result.json
+          node examples/minimal-adapter.mjs > evidence/adapter-result.json
+
+      - name: 核对用户可理解的结果
+        run: |
+          node -e "const fs=require('node:fs');const a=JSON.parse(fs.readFileSync('evidence/agent-result.json'));const d=JSON.parse(fs.readFileSync('evidence/adapter-result.json'));if(a.output.candidate.answer!==42||a.formalWrite!==false||a.platformSurcharge.amount!==0)process.exit(1);if(d.result.status!=='completed'||d.result.output.text!=='Hello Mojing'||d.result.formalWrite!==false)process.exit(1)"
+
+      - name: 生成中文验收结论
+        if: always()
+        run: |
+          mkdir -p evidence
+          if [ "${{ job.status }}" = "success" ]; then
+            {
+              echo "# ✅ 墨境公开制品验收通过"
+              echo
+              echo "- 公开仓库可以获取"
+              echo "- 八个开放制品可以安装和构建"
+              echo "- 测试和类型检查通过"
+              echo "- 最小 Agent 得到答案 42"
+              echo "- 最小适配器得到 Hello Mojing"
+              echo "- 两个示例均未执行正式写入"
+              echo
+              echo "验证提交：${GITHUB_SHA}"
+            } | tee evidence/验收结论.md >> "${GITHUB_STEP_SUMMARY}"
+          else
+            {
+              echo "# ❌ 墨境公开制品验收未通过"
+              echo
+              echo "请展开第一个红色步骤查看原因。未通过不代表正式数据受到影响；本流程只使用公开源码和合成数据。"
+              echo
+              echo "验证提交：${GITHUB_SHA}"
+            } | tee evidence/验收结论.md >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+      - name: 保存验收证据
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mojing-owner-acceptance-${{ github.run_number }}
+          path: evidence/
+          if-no-files-found: warn
+          retention-days: 30
