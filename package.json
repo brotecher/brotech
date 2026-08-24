@@ -8,6 +8,8 @@
   },
   "scripts": {
     "build": "pnpm -r --if-present build",
+    "example:adapter": "node examples/minimal-adapter.mjs",
+    "example:agent": "node examples/minimal-agent.mjs",
     "test": "pnpm -r --if-present test:unit",
     "typecheck": "pnpm -r --if-present typecheck"
   },
