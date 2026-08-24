@@ -5,7 +5,7 @@
   "sourceCommit": "c9766630ccfe8b20849d6024f37a23526150da87",
   "sourceWorktreeClean": true,
   "publicationTarget": "https://github.com/brotecher/brotech",
-  "publicationCompleted": false,
+  "publicationCompleted": true,
   "independentThirdPartyValidationCompleted": false,
   "npmRegistryPublicationAuthorized": false,
   "artifacts": [
