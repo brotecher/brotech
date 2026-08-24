@@ -3,7 +3,7 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "@mojing/adapter-host-0.1.0-source",
-  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fadapter-host/0.1.0/f85fb27c4e8853d468b20362c9deeb12f0fe60a97bc9586756afaad1900b852a",
+  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fadapter-host/0.1.0/c2b2d97725c186460775de0a0fa61897e8fe3756bd9ecac35e81c82930ac9faa",
   "creationInfo": {
     "created": "2026-08-24T00:00:00Z",
     "creators": [
@@ -22,7 +22,7 @@
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": true,
       "packageVerificationCode": {
-        "packageVerificationCodeValue": "44b1daab8162bb7e216a94646cfbde60949bb992"
+        "packageVerificationCodeValue": "6e62c4add067b14da757be20a9e56ccc76bbc012"
       },
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
@@ -171,11 +171,11 @@
       "checksums": [
         {
           "algorithm": "SHA1",
-          "checksumValue": "244cf9514fb7576f689c1e8dae89d066562cb8fe"
+          "checksumValue": "2e4f59310900bdfcfa2cf0214d7a6f91ed5cdb31"
         },
         {
           "algorithm": "SHA256",
-          "checksumValue": "42dcb4b287988ff0bcfc6d8389465aab30dc7b0435bdd61f909963a096066403"
+          "checksumValue": "fb9f088ed4d204e8d0936b09d69d9a8aa4bbdb1f01c47f2134689ffa53fd91f5"
         }
       ],
       "licenseConcluded": "Apache-2.0",

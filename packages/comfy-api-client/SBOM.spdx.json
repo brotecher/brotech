@@ -3,7 +3,7 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "@mojing/comfy-api-client-0.1.0-source",
-  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fcomfy-api-client/0.1.0/4caf3550bc5abc85b123022c48185b409bf79ae8a4ba4806ba7b50ec2e88565e",
+  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fcomfy-api-client/0.1.0/b725c42920df3fc259fdc201672ed377efd81942bd5ad2d2714abd0988e4afab",
   "creationInfo": {
     "created": "2026-08-24T00:00:00Z",
     "creators": [
@@ -22,7 +22,7 @@
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": true,
       "packageVerificationCode": {
-        "packageVerificationCodeValue": "e54c4759ec75fcc80f49302e10e580952396afc7"
+        "packageVerificationCodeValue": "0f9fcceafc1ad0915d18067df359275248e77a20"
       },
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
@@ -160,11 +160,11 @@
       "checksums": [
         {
           "algorithm": "SHA1",
-          "checksumValue": "17bae848fb9d0aedf75b5c340ad3a1aefb803a89"
+          "checksumValue": "ae64c1e07f3772cb838fb143ba607d34a0637d8d"
         },
         {
           "algorithm": "SHA256",
-          "checksumValue": "d47b689aaa475be3e674879e923782562575190e721badf7a43cfdd0e1603d18"
+          "checksumValue": "edd47a36594a5ed8cd64dadfb43d5549dd8355cae60d78a7057cb8d987c9774e"
         }
       ],
       "licenseConcluded": "Apache-2.0",

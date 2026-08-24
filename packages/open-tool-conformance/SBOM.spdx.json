@@ -3,7 +3,7 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "@mojing/open-tool-conformance-0.1.0-source",
-  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fopen-tool-conformance/0.1.0/e0bcdb166a464ddd6a389d1a704e1dbf9c4b1bbb518c3a4dd4ef06d4fde39e63",
+  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fopen-tool-conformance/0.1.0/5a03eff3d32883c9817424db73b47a55c2a8080d1c6142ee4ffdb0172270d9c5",
   "creationInfo": {
     "created": "2026-08-24T00:00:00Z",
     "creators": [
@@ -22,7 +22,7 @@
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": true,
       "packageVerificationCode": {
-        "packageVerificationCodeValue": "e35926ea95605280a210d46e7eb17bda4ae52f77"
+        "packageVerificationCodeValue": "f97f62334be9198d36ceec2e87ec1f366f203414"
       },
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
@@ -160,11 +160,11 @@
       "checksums": [
         {
           "algorithm": "SHA1",
-          "checksumValue": "7a4539dace1c972623f90c9815508174bd408eeb"
+          "checksumValue": "f26925049a4c488080b195634d32fb445210067b"
         },
         {
           "algorithm": "SHA256",
-          "checksumValue": "5f381767468902c98461d53b35f4de7990e3fbbbc1997205dc15eed2c9236d5a"
+          "checksumValue": "f944edb578aa50e71fa44cd2529bb3656525f49a31259edb49bbfdb704518af3"
         }
       ],
       "licenseConcluded": "Apache-2.0",
