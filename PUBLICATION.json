@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "mj.public-source-export/v1",
+  "decision": 19,
+  "authorization": "public-github-repository",
+  "sourceCommit": "c9766630ccfe8b20849d6024f37a23526150da87",
+  "sourceWorktreeClean": true,
+  "publicationTarget": "https://github.com/brotecher/brotech",
+  "publicationCompleted": false,
+  "independentThirdPartyValidationCompleted": false,
+  "npmRegistryPublicationAuthorized": false,
+  "artifacts": [
+    {
+      "name": "@mojing/protocol-spec",
+      "version": "1.0.0",
+      "path": "packages/protocol-spec",
+      "artifactClass": "neutral-specification",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/adapter-sdk",
+      "version": "0.1.0",
+      "path": "packages/adapter-sdk",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/agent-runtime",
+      "version": "0.1.0",
+      "path": "packages/agent-runtime",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/capability-matcher",
+      "version": "0.1.0",
+      "path": "packages/capability-matcher",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/gateway-core",
+      "version": "0.1.0",
+      "path": "packages/gateway-core",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/open-tool-conformance",
+      "version": "0.1.0",
+      "path": "packages/open-tool-conformance",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/comfy-api-client",
+      "version": "0.1.0",
+      "path": "packages/comfy-api-client",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    },
+    {
+      "name": "@mojing/adapter-host",
+      "version": "0.1.0",
+      "path": "packages/adapter-host",
+      "artifactClass": "executable-open-middleware",
+      "npmRegistryPrivate": true
+    }
+  ],
+  "explicitlyExcluded": [
+    "@mojing/contracts",
+    "@mojing/workflow-canvas",
+    "ComfyUI Core",
+    "ComfyUI Frontend",
+    "ComfyUI Desktop",
+    "ComfyUI-specific nodes, extensions, patches and distribution tools"
+  ]
+}

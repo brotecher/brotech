@@ -1,0 +1,250 @@
+{
+  "protocolVersion": "1.0.0",
+  "examples": [
+    {
+      "id": "invalid-prt-id",
+      "family": "PRT-ID",
+      "schemaId": "urn:mojing:protocol:prt-id:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-PRT-ID-001"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_REQUIRED",
+      "value": {
+        "ref": { "id": "person-lin-yue", "typeId": "mj.core/person" },
+        "roles": {
+          "actorRef": { "id": "agent-codex", "typeId": "mj.core/actor", "version": "1.0.0" },
+          "ownerRef": { "id": "owner-local", "typeId": "mj.core/user", "version": "1.0.0" },
+          "projectRef": {
+            "id": "project-portrait",
+            "typeId": "mj.core/project",
+            "version": "1.0.0"
+          },
+          "reviewerRef": {
+            "id": "reviewer-local",
+            "typeId": "mj.core/reviewer",
+            "version": "1.0.0"
+          }
+        }
+      }
+    },
+    {
+      "id": "invalid-cap",
+      "family": "CAP",
+      "schemaId": "urn:mojing:protocol:cap:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-CAP-001", "PROTOCOL-RULE-CAP-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_MINIMUM",
+      "value": {
+        "id": { "id": "cap-world-query", "typeId": "mj.core/capability", "version": "1.0.0" },
+        "inputs": [{ "name": "query", "typeRef": "mj.core/text", "required": true }],
+        "outputs": [
+          { "name": "personSnapshot", "typeRef": "mj.core/person-snapshot", "required": true }
+        ],
+        "permission": "world.read",
+        "publicErrors": ["permission-denied"],
+        "usageCost": {
+          "mode": "fixed",
+          "amount": -1,
+          "unit": "synthetic-unit",
+          "source": "deterministic-fixture"
+        },
+        "sideEffect": "read",
+        "deterministicMockEntry": "mock://world-query/1.0.0"
+      }
+    },
+    {
+      "id": "invalid-node",
+      "family": "NODE",
+      "schemaId": "urn:mojing:protocol:node:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-NODE-001", "PROTOCOL-RULE-NODE-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_MIN_ITEMS",
+      "value": {
+        "id": { "id": "node-world-query", "typeId": "mj.core/node", "version": "1.0.0" },
+        "category": "query",
+        "inputPorts": [{ "name": "query", "typeRef": "mj.core/text", "required": true }],
+        "outputPorts": [
+          { "name": "result", "typeRef": "mj.core/person-snapshot", "required": true }
+        ],
+        "parameters": [],
+        "capabilityDependencies": [],
+        "permissionDependencies": ["world.read"],
+        "sideEffectPolicy": "read",
+        "costPolicy": "fixed",
+        "errorExits": ["timeout"],
+        "timeout": { "milliseconds": 5000, "outcome": "failed" },
+        "retry": { "maxAttempts": 2, "retryableErrors": ["timeout"], "backoff": "fixed" },
+        "cancellation": { "supported": true, "lateResultPolicy": "discard" },
+        "cache": {
+          "mode": "read-only",
+          "keyIncludes": [
+            "capabilityVersion",
+            "implementationVersion",
+            "inputHash",
+            "permissionHash",
+            "dataVersion"
+          ]
+        },
+        "idempotency": {
+          "required": true,
+          "keyScope": "run-node",
+          "effectIdentity": "candidate-output"
+        }
+      }
+    },
+    {
+      "id": "invalid-workflow",
+      "family": "WORKFLOW",
+      "schemaId": "urn:mojing:protocol:workflow:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-WORKFLOW-001", "PROTOCOL-RULE-WORKFLOW-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_REQUIRED",
+      "value": {
+        "id": { "id": "workflow-portrait", "typeId": "mj.core/workflow", "version": "1.0.0" },
+        "inputs": [{ "name": "personName", "typeRef": "mj.core/text", "required": true }],
+        "outputs": [{ "name": "summary", "typeRef": "mj.core/summary", "required": true }],
+        "nodes": [
+          {
+            "nodeId": "input-name",
+            "nodeRef": { "id": "node-person-input", "typeId": "mj.core/node", "version": "1.0.0" }
+          },
+          {
+            "nodeId": "query-person",
+            "nodeRef": { "id": "node-world-query", "typeId": "mj.core/node", "version": "1.0.0" }
+          }
+        ],
+        "connections": [
+          {
+            "fromNode": "input-name",
+            "fromPort": "name",
+            "toNode": "query-person",
+            "toPort": "query"
+          }
+        ],
+        "entryNodeId": "input-name",
+        "failurePaths": ["missing-input"],
+        "reviewPoints": [{ "nodeId": "query-person", "reviewerRequired": true }],
+        "changeDecisionPath": "query-person.review-to-change-decision",
+        "dependencyLock": [
+          { "id": "node-world-query", "typeId": "mj.core/node", "version": "1.0.0" }
+        ]
+      }
+    },
+    {
+      "id": "invalid-run",
+      "family": "RUN",
+      "schemaId": "urn:mojing:protocol:run:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-RUN-001", "PROTOCOL-RULE-RUN-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_REQUIRED",
+      "value": {
+        "id": { "id": "run-portrait-001", "typeId": "mj.core/run", "version": "1.0.0" },
+        "nodeVersions": [
+          { "id": "node-world-query", "typeId": "mj.core/node", "version": "1.0.0" }
+        ],
+        "capabilityVersions": [
+          { "id": "cap-world-query", "typeId": "mj.core/capability", "version": "1.0.0" }
+        ],
+        "dataVersions": [
+          { "id": "person-lin-yue", "typeId": "mj.core/person", "version": "1.0.0" }
+        ],
+        "status": "failed",
+        "attempt": 1,
+        "timeoutMilliseconds": 5000,
+        "retry": { "maxAttempts": 2, "nextAttemptAllowed": false },
+        "cancellation": { "requested": false, "confirmed": false, "lateResultPolicy": "discard" },
+        "usageCost": { "amount": 1, "unit": "synthetic-unit", "source": "deterministic-fixture" },
+        "review": { "required": true, "status": "pending" },
+        "changeResult": { "status": "none" }
+      }
+    },
+    {
+      "id": "invalid-change",
+      "family": "CHANGE",
+      "schemaId": "urn:mojing:protocol:change:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-CHANGE-001", "PROTOCOL-RULE-CHANGE-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "CHANGE_ACCEPTANCE_UNAUTHORIZED",
+      "value": {
+        "id": { "id": "change-portrait-001", "typeId": "mj.core/change", "version": "1.0.0" },
+        "targets": [{ "id": "person-lin-yue", "typeId": "mj.core/person", "version": "1.0.0" }],
+        "baseVersion": "1.0.0",
+        "proposedChanges": [{ "path": "/portrait", "operation": "replace", "valueJson": "{}" }],
+        "sourceRef": { "id": "run-portrait-001", "typeId": "mj.core/run", "version": "1.0.0" },
+        "checks": [{ "ruleId": "PROTOCOL-RULE-CROSS-001", "status": "passed" }],
+        "reviewerRef": { "id": "reviewer-local", "typeId": "mj.core/reviewer", "version": "1.0.0" },
+        "permission": "world.read",
+        "decision": "accepted",
+        "conflicts": [],
+        "idempotency": {
+          "key": "portrait-001",
+          "effectIdentity": "person-lin-yue@1.0.0:/portrait"
+        },
+        "formalWrite": false
+      }
+    },
+    {
+      "id": "invalid-app",
+      "family": "APP",
+      "schemaId": "urn:mojing:protocol:app:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-APP-001", "PROTOCOL-RULE-APP-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "APP_ENTRY_INCOMPATIBLE",
+      "value": {
+        "id": { "id": "app-portrait", "typeId": "mj.core/app", "version": "1.0.0" },
+        "entryWorkflowRef": {
+          "id": "workflow-portrait",
+          "typeId": "mj.core/workflow",
+          "version": "1.0.0"
+        },
+        "dependencies": [
+          { "id": "workflow-portrait", "typeId": "mj.core/workflow", "version": "1.0.0" }
+        ],
+        "permissions": ["world.read"],
+        "compatibility": { "protocolVersion": "1.0.0", "status": "unknown" },
+        "publishStatus": "draft",
+        "lifecycle": {
+          "state": "installed",
+          "dataOwnerRef": { "id": "owner-local", "typeId": "mj.core/user", "version": "1.0.0" },
+          "rollbackVersion": "1.0.0"
+        },
+        "dataOwnership": "project-owned"
+      }
+    },
+    {
+      "id": "invalid-canvas",
+      "family": "CANVAS",
+      "schemaId": "urn:mojing:protocol:canvas:1.0.0",
+      "ruleIds": ["PROTOCOL-RULE-CANVAS-001", "PROTOCOL-RULE-CANVAS-002"],
+      "expected": "invalid",
+      "expectedErrorCode": "SCHEMA_MAX_ITEMS",
+      "value": {
+        "id": { "id": "canvas-portrait", "typeId": "mj.core/canvas", "version": "1.0.0" },
+        "nodes": [
+          {
+            "id": "query-person",
+            "typeRef": "mj.core/node",
+            "position": { "x": 100, "y": 120 },
+            "dataRef": { "id": "node-world-query", "typeId": "mj.core/node", "version": "1.0.0" }
+          }
+        ],
+        "edges": [],
+        "selectedIds": [],
+        "layoutVersion": "layout-0.1",
+        "serializationVersion": "canvas-0.1",
+        "kernel": {
+          "domainSchemaRefs": ["mj.core/person"],
+          "vendorTypeRefs": [],
+          "testSeam": "canvas-kernel-test-v0.1"
+        },
+        "workflowAdapter": {
+          "workflowRef": {
+            "id": "workflow-portrait",
+            "typeId": "mj.core/workflow",
+            "version": "1.0.0"
+          },
+          "layoutChangeCreatesDomainChangeSet": false
+        }
+      }
+    }
+  ]
+}

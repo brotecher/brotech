@@ -1,0 +1,43 @@
+{
+  "id": "comfy.fixture.m3.original-api-client.v1",
+  "status": "fixture-only",
+  "clientVersion": "0.1.0",
+  "comfyCoreVersion": "not-installed",
+  "frontendVersion": "not-installed",
+  "pythonVersion": "not-installed",
+  "operatingSystem": "deterministic-fixture",
+  "gpuAndDriver": "not-applicable",
+  "nodePackages": [],
+  "frontendExtensions": [],
+  "modelPackages": [],
+  "systemTools": [],
+  "routes": [
+    "GET /features",
+    "GET /history/{prompt_id}",
+    "GET /models",
+    "GET /object_info",
+    "GET /queue",
+    "GET /system_stats",
+    "POST /interrupt",
+    "POST /prompt",
+    "WS /ws?clientId={client_id}"
+  ],
+  "supportedCapabilities": [
+    "fixed-source-capture",
+    "immutable-source-snapshot",
+    "unknown-payload-preservation",
+    "request-construction"
+  ],
+  "unsupportedCapabilities": [
+    "real-instance-connection",
+    "real-execution",
+    "real-cancellation",
+    "real-event-stream",
+    "real-history-validation",
+    "frontend-island",
+    "installation-or-distribution"
+  ],
+  "isolation": "No ComfyUI code, process, database, directory, credential or network is used.",
+  "verifiedAt": null,
+  "supportUntil": null
+}

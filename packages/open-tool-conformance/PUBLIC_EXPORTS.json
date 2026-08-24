@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/open-tool-conformance",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "ReferenceA2AHost",
+    "ReferenceWebhookGuard",
+    "evaluateProtocolEnvelope",
+    "invokeOpenToolFixture",
+    "mapMcpToolToNode",
+    "migrateOpenProtocolEnvelope",
+    "openToolProtocolSchemaVersion",
+    "openToolReferenceImplementationVersion",
+    "publishNodeAsMcpTool",
+    "revokeMcpMapping",
+    "runOpenToolConformanceFixtures"
+  ],
+  "types": [
+    "A2AAgentCard",
+    "A2ATask",
+    "InvocationRequest",
+    "McpNodeMapping",
+    "OpenProtocolHeader",
+    "OpenToolDescriptor",
+    "OpenToolValue",
+    "OpenTransport",
+    "ProtocolExtension",
+    "SecurityExtensionKind",
+    "UnifiedInvocationRecord",
+    "WebhookDecision",
+    "WebhookEvent"
+  ]
+}

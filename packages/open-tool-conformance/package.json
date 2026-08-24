@@ -1,0 +1,38 @@
+{
+  "name": "@mojing/open-tool-conformance",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "tests",
+    "tsconfig.json",
+    "README.md",
+    "docs",
+    "LICENSE",
+    "NOTICE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "DCO.txt",
+    "SOURCE.md",
+    "PUBLIC_EXPORTS.json",
+    "SBOM.spdx.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test:unit": "vitest run tests/unit.test.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  }
+}

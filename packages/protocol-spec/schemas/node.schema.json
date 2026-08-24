@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mojing:protocol:node:1.0.0",
+  "title": "Mojing NODE Protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "inputPorts",
+    "outputPorts",
+    "parameters",
+    "capabilityDependencies",
+    "permissionDependencies",
+    "sideEffectPolicy",
+    "costPolicy",
+    "errorExits",
+    "timeout",
+    "retry",
+    "cancellation",
+    "cache",
+    "idempotency"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "category": { "type": "string", "minLength": 1 },
+    "inputPorts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/port" } },
+    "outputPorts": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/port" } },
+    "parameters": { "type": "array", "items": { "$ref": "#/$defs/port" } },
+    "capabilityDependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "permissionDependencies": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sideEffectPolicy": {
+      "enum": [
+        "none",
+        "read",
+        "candidate",
+        "formal-write",
+        "delete",
+        "external-send",
+        "permission-change"
+      ]
+    },
+    "costPolicy": { "enum": ["none", "fixed", "estimated", "actual"] },
+    "errorExits": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "timeout": {
+      "type": "object",
+      "required": ["milliseconds", "outcome"],
+      "additionalProperties": false,
+      "properties": {
+        "milliseconds": { "type": "integer", "minimum": 1 },
+        "outcome": { "enum": ["failed", "cancelled"] }
+      }
+    },
+    "retry": {
+      "type": "object",
+      "required": ["maxAttempts", "retryableErrors", "backoff"],
+      "additionalProperties": false,
+      "properties": {
+        "maxAttempts": { "type": "integer", "minimum": 1 },
+        "retryableErrors": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "backoff": { "enum": ["none", "fixed"] }
+      }
+    },
+    "cancellation": {
+      "type": "object",
+      "required": ["supported", "lateResultPolicy"],
+      "additionalProperties": false,
+      "properties": {
+        "supported": { "type": "boolean" },
+        "lateResultPolicy": { "const": "discard" }
+      }
+    },
+    "cache": {
+      "type": "object",
+      "required": ["mode", "keyIncludes"],
+      "additionalProperties": false,
+      "properties": {
+        "mode": { "enum": ["disabled", "read-only"] },
+        "keyIncludes": {
+          "type": "array",
+          "minItems": 5,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "idempotency": {
+      "type": "object",
+      "required": ["required", "keyScope", "effectIdentity"],
+      "additionalProperties": false,
+      "properties": {
+        "required": { "type": "boolean" },
+        "keyScope": { "type": "string", "minLength": 1 },
+        "effectIdentity": { "type": "string", "minLength": 1 }
+      }
+    }
+  },
+  "$defs": {
+    "port": {
+      "type": "object",
+      "required": ["name", "typeRef", "required"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "typeRef": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" }
+      }
+    }
+  }
+}

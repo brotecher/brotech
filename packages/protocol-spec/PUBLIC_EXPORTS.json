@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/protocol-spec",
+  "artifactClass": "neutral-specification",
+  "entrypoint": ".",
+  "runtime": [
+    "protocolFamilies",
+    "protocolFamilyNames",
+    "protocolVersion",
+    "validateAppProtocol",
+    "validateCanvasProtocol",
+    "validateChangeProtocol",
+    "validateNodeProtocol",
+    "validateProtocol",
+    "validateRunProtocol",
+    "validateWorkflowProtocol"
+  ],
+  "types": [
+    "AppProtocol",
+    "CanvasProtocol",
+    "CapabilityProtocol",
+    "ChangeProtocol",
+    "NodeProtocol",
+    "ProtocolFamilyName",
+    "ProtocolValidationError",
+    "ProtocolValidationResult",
+    "PrtIdProtocol",
+    "RunProtocol",
+    "StableRef",
+    "WorkflowProtocol"
+  ]
+}

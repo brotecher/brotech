@@ -1,0 +1,103 @@
+{
+  "protocolVersion": "1.0.0",
+  "baseFormalData": {
+    "person-lin-yue": { "version": "1.0.0", "portrait": "old portrait" },
+    "person-shen-wei": { "version": "1.0.0", "portrait": "unchanged portrait" }
+  },
+  "requiredCompatibilityPaths": [
+    { "path": "StableRef→all-families", "status": "compatible" },
+    { "path": "APP→WORKFLOW", "status": "compatible" },
+    { "path": "WORKFLOW→NODE", "status": "compatible" },
+    { "path": "WORKFLOW→CAP", "status": "compatible" },
+    { "path": "WORKFLOW→CANVAS", "status": "compatible" },
+    { "path": "NODE→CAP", "status": "compatible" },
+    { "path": "RUN→WORKFLOW/NODE/CAP/data", "status": "compatible" },
+    { "path": "CHANGE→review/formal-acceptance", "status": "compatible" }
+  ],
+  "scenarios": [
+    {
+      "id": "cross-happy",
+      "families": ["PRT-ID", "APP", "WORKFLOW", "NODE", "CAP", "RUN", "CHANGE", "CANVAS"],
+      "input": {
+        "personName": "林月",
+        "permission": "formal.write.each-approval",
+        "reviewDecision": "accept"
+      },
+      "expected": {
+        "status": "accepted",
+        "formalChanged": true,
+        "changedTargets": ["person-lin-yue"]
+      },
+      "acceptedPatch": {
+        "target": "person-lin-yue",
+        "portrait": "deterministic portrait",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "id": "cross-rejected",
+      "families": ["WORKFLOW", "RUN", "CHANGE"],
+      "input": {
+        "personName": "林月",
+        "permission": "formal.write.each-approval",
+        "reviewDecision": "reject"
+      },
+      "expected": { "status": "rejected", "formalChanged": false, "changedTargets": [] }
+    },
+    {
+      "id": "cross-permission-failure",
+      "families": ["CAP", "NODE", "RUN", "CHANGE"],
+      "input": { "personName": "林月", "permission": "world.read", "reviewDecision": "accept" },
+      "expected": { "status": "permission-denied", "formalChanged": false, "changedTargets": [] }
+    },
+    {
+      "id": "cross-version-conflict",
+      "families": ["PRT-ID", "RUN", "CHANGE"],
+      "input": {
+        "personName": "林月",
+        "baseVersion": "0.9.0",
+        "currentVersion": "1.0.0",
+        "reviewDecision": "accept"
+      },
+      "expected": { "status": "version-conflict", "formalChanged": false, "changedTargets": [] }
+    },
+    {
+      "id": "cross-invalid-output",
+      "families": ["CAP", "NODE", "RUN"],
+      "input": { "personName": "林月", "capabilityOutputValid": false },
+      "expected": { "status": "invalid-output", "formalChanged": false, "changedTargets": [] }
+    },
+    {
+      "id": "cross-candidate-only",
+      "families": ["WORKFLOW", "RUN", "CHANGE"],
+      "input": { "personName": "林月", "reviewDecision": "pending" },
+      "expected": { "status": "candidate", "formalChanged": false, "changedTargets": [] }
+    },
+    {
+      "id": "cross-reviewer-accepted",
+      "families": ["PRT-ID", "RUN", "CHANGE"],
+      "input": {
+        "personName": "林月",
+        "permission": "formal.write.each-approval",
+        "reviewerId": "reviewer-local",
+        "reviewDecision": "accept"
+      },
+      "expected": {
+        "status": "accepted",
+        "formalChanged": true,
+        "changedTargets": ["person-lin-yue"]
+      },
+      "acceptedPatch": {
+        "target": "person-lin-yue",
+        "portrait": "reviewed deterministic portrait",
+        "version": "1.1.0"
+      }
+    },
+    {
+      "id": "cross-timeout-cancelled",
+      "families": ["NODE", "RUN", "CHANGE"],
+      "input": { "personName": "林月", "timeout": true, "cancelRequested": true },
+      "expected": { "status": "cancelled", "formalChanged": false, "changedTargets": [] }
+    }
+  ]
+}

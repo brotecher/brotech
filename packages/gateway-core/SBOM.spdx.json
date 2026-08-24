@@ -1,0 +1,368 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "@mojing/gateway-core-0.1.0-source",
+  "documentNamespace": "https://mojing.invalid/spdx/%40mojing%2Fgateway-core/0.1.0/2892c3f924270d0aeb6a56c136f201c6369bf3b1bb513bfa21049de3eaf0af66",
+  "creationInfo": {
+    "created": "2026-08-24T00:00:00Z",
+    "creators": [
+      "Organization: Mojing",
+      "Tool: mojing-sync-open-artifacts/1"
+    ]
+  },
+  "documentDescribes": [
+    "SPDXRef-Package--mojing-gateway-core"
+  ],
+  "packages": [
+    {
+      "name": "@mojing/gateway-core",
+      "SPDXID": "SPDXRef-Package--mojing-gateway-core",
+      "versionInfo": "0.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "6c1c5982eacc5c30001639ed46321dedc25b6e99"
+      },
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "licenseInfoFromFiles": [
+        "Apache-2.0",
+        "CC0-1.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors",
+      "supplier": "Organization: Mojing",
+      "primaryPackagePurpose": "LIBRARY",
+      "comment": "Mojing-authored open artifact source snapshot; public GitHub publication is authorized but not completed."
+    },
+    {
+      "name": "typescript",
+      "SPDXID": "SPDXRef-Package-Dependency-typescript",
+      "versionInfo": "7.0.2",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "NOASSERTION",
+      "comment": "build dependency; acquisition is governed by the repository lockfile"
+    },
+    {
+      "name": "vitest",
+      "SPDXID": "SPDXRef-Package-Dependency-vitest",
+      "versionInfo": "4.1.10",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "copyrightText": "NOASSERTION",
+      "comment": "build dependency; acquisition is governed by the repository lockfile"
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./CONTRIBUTING.md",
+      "SPDXID": "SPDXRef-File-CONTRIBUTING.md",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "5364648947a709843c22f052b564881412a3da8a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dbfe288165370c65725b0be3fc634a2b4a27dc2c1bad3d0d43c24abb558dc582"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./DCO.txt",
+      "SPDXID": "SPDXRef-File-DCO.txt",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "285698eadb456dc56892169675fbbfa77cfc5ff1"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b6fa3d946c304485df4ba15e24bb07002c8f67bca4cb4fbabadddb0955af7c6d"
+        }
+      ],
+      "licenseConcluded": "CC0-1.0",
+      "licenseInfoInFiles": [
+        "CC0-1.0"
+      ],
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./LICENSE",
+      "SPDXID": "SPDXRef-File-LICENSE",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "2b8b815229aa8a61e483fb4ba0588b8b6c491890"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./NOTICE",
+      "SPDXID": "SPDXRef-File-NOTICE",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "6988ba7185ece0ace314da7bfb417fd73106b2ba"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "10abaffe5cf91c1179bed63b152ba6a125249b8c202ca2b8fb8a606c5239948b"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./PUBLIC_EXPORTS.json",
+      "SPDXID": "SPDXRef-File-PUBLIC-EXPORTS.json",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "936bef76ad2580506af540fd5ebdaafd1ff83b3a"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "34ce881cf6ac0761467dbedcddc27a6e69d142ea639b765b9b4d6c652f3c49ca"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./README.md",
+      "SPDXID": "SPDXRef-File-README.md",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "9391947b27be8b8736abe55b691e56a6004230dd"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "f03559a697a96d0ad8e32616d707bc6434aa84632fb083363025f44119294a10"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./SECURITY.md",
+      "SPDXID": "SPDXRef-File-SECURITY.md",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "e840e12ff73f5f4a1a0250fd292d88d1d504948f"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "b97c3b549c77f049f80dd3707eb2be4c897688540b75577a6d4319f106a961f6"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./SOURCE.md",
+      "SPDXID": "SPDXRef-File-SOURCE.md",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "661a837e864265c4ad1f8df6324104731ff31d70"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5a5174bf0b5487370902adb04fbe3f6a22eab87938acc1641267ac539ef30731"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./package.json",
+      "SPDXID": "SPDXRef-File-package.json",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "f828e85beb30113ac3641e69a1750ae38841ea72"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "4ce1e049288dd308472307d312f8ca1cd11663e49b4662778853a189d5f74657"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./src/index.ts",
+      "SPDXID": "SPDXRef-File-src-index.ts",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "29a16f9eb425a1d29ffa8fdd77a48b81ed642650"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "544832fd6ed2810f872045f081923634fecc57430debc993647fe4f153bb5f18"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./tests/unit.test.ts",
+      "SPDXID": "SPDXRef-File-tests-unit.test.ts",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "b3ff10c981bce6d3e5cca77948c595515a2aad95"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "dc05ab5e40c02e9a37f2925c333f2b536aad67ae20fe4301c756504a1236f697"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    },
+    {
+      "fileName": "./tsconfig.json",
+      "SPDXID": "SPDXRef-File-tsconfig.json",
+      "checksums": [
+        {
+          "algorithm": "SHA1",
+          "checksumValue": "540b4929ac5831b24d49b1dd8d1e30975a5ccba7"
+        },
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cc5d770f38ef23ac78880d2475ba4fd5c591283d89dcc2006b901e995e533c41"
+        }
+      ],
+      "licenseConcluded": "Apache-2.0",
+      "licenseInfoInFiles": [
+        "Apache-2.0"
+      ],
+      "copyrightText": "Copyright 2026 Mojing contributors"
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package--mojing-gateway-core"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-CONTRIBUTING.md"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-DCO.txt"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-LICENSE"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-NOTICE"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-PUBLIC-EXPORTS.json"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-README.md"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-SECURITY.md"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-SOURCE.md"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-package.json"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-src-index.ts"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-tests-unit.test.ts"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package--mojing-gateway-core",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-File-tsconfig.json"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-Dependency-typescript",
+      "relationshipType": "BUILD_DEPENDENCY_OF",
+      "relatedSpdxElement": "SPDXRef-Package--mojing-gateway-core"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-Dependency-vitest",
+      "relationshipType": "BUILD_DEPENDENCY_OF",
+      "relatedSpdxElement": "SPDXRef-Package--mojing-gateway-core"
+    }
+  ]
+}

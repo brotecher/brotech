@@ -1,0 +1,41 @@
+{
+  "protocolVersion": "1.0.0",
+  "method": {
+    "compatible": "all required identity, version, behavior and contract evidence exists and passes without weakening permissions or formal-write semantics",
+    "incompatible": "a proven break exists in valid input, stable reference, permission, formal-write meaning or applicable contract test",
+    "unknown": "no proven break exists but required evidence, rule, version or test is missing"
+  },
+  "decisions": [
+    {
+      "legacyType": "place",
+      "protocolTypeId": "mj.core/location",
+      "protocolTypeVersion": "1.0.0",
+      "stableRefBehavior": "id/typeId/version remains explicit and version is compared exactly",
+      "d1Behavior": "location objects remain stably referenceable as one of the five built-in world object classes",
+      "differenceOwner": "representation mapping owned by the protocol compatibility boundary",
+      "outcome": "compatible",
+      "explicitMappingRequired": true,
+      "migrationBoundary": "read-only mapping until a future product migration is explicitly implemented",
+      "evidence": {
+        "scope": "current protocol contract tests",
+        "method": "schema, rule and cross-family validation"
+      }
+    },
+    {
+      "legacyType": "relation",
+      "protocolTypeId": "mj.core/relationship",
+      "protocolTypeVersion": "1.0.0",
+      "stableRefBehavior": "id/typeId/version remains explicit and version is compared exactly",
+      "d1Behavior": "relationship objects remain stably referenceable as one of the five built-in world object classes",
+      "differenceOwner": "representation mapping owned by the protocol compatibility boundary",
+      "outcome": "compatible",
+      "explicitMappingRequired": true,
+      "migrationBoundary": "read-only mapping until a future product migration is explicitly implemented",
+      "evidence": {
+        "scope": "current protocol contract tests",
+        "method": "schema, rule and cross-family validation"
+      }
+    }
+  ],
+  "hardBlockers": []
+}

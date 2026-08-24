@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "mj.compatibility-matrix/v1",
+  "entries": [
+    {
+      "id": "reference.text.transform.fixture.v1",
+      "productVersion": "0.1.0",
+      "protocolRevision": "1.0.0",
+      "implementation": { "id": "reference.text.transform", "version": "1.0.0" },
+      "environment": {
+        "runtime": "Node.js 24.19.0 / browser ES2023",
+        "operatingSystem": "isolated deterministic fixture",
+        "dependencies": ["@mojing/adapter-sdk@0.1.0"]
+      },
+      "supportedCapabilities": ["structured-transform", "cancellation"],
+      "unsupportedCapabilities": [
+        { "capability": "streaming", "reason": "确定性参考实现只返回完整结果。" },
+        { "capability": "recovery", "reason": "单步纯函数转换没有恢复检查点。" }
+      ],
+      "isolation": "No network, subprocess, credential, authoritative data, approval or formal-write channel.",
+      "evidenceLevel": "isolated-fixture",
+      "verifiedAt": "2026-08-24T00:00:00.000Z",
+      "supportUntil": null,
+      "evidence": [
+        "fixture:reference-text-transform-unit",
+        "fixture:adapter-host-permission-and-revocation-unit"
+      ]
+    }
+  ]
+}

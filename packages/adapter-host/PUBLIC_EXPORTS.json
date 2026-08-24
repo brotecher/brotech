@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/adapter-host",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "AdapterHost",
+    "adapterHostVersion",
+    "compatibilityMatrixSchemaVersion",
+    "createReferenceTextAdapter",
+    "fixedAdapterCompatibilityMatrix",
+    "validateCompatibilityMatrix"
+  ],
+  "types": [
+    "AdapterHostAuditEvent",
+    "AdapterHostInvocation",
+    "AdapterHostInvocationResult",
+    "CompatibilityMatrix",
+    "CompatibilityMatrixEntry",
+    "CompatibilityMatrixValidation",
+    "ExternalPermissionGrant"
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "protocolVersion": "1.0.0",
+  "versionComparison": "opaque-exact",
+  "schemaDialect": "https://json-schema.org/draft/2020-12/schema",
+  "families": [
+    {
+      "name": "PRT-ID",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/prt-id.schema.json",
+        "id": "urn:mojing:protocol:prt-id:1.0.0",
+        "sha256": "c3b5aaf755dcd74b43d0699a5dacfe6c7c0b616e6fab93e5c228313b4c5198f8"
+      },
+      "ruleIds": ["PROTOCOL-RULE-PRT-ID-001"],
+      "derivedType": "PrtIdProtocol",
+      "normalExampleIds": ["normal-prt-id"],
+      "invalidExampleIds": ["invalid-prt-id"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "CAP",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/cap.schema.json",
+        "id": "urn:mojing:protocol:cap:1.0.0",
+        "sha256": "fc6c1a5d0c57504a1b57a67f64ab1ab81bed0b57b302baabf66e226cd633aa4e"
+      },
+      "ruleIds": ["PROTOCOL-RULE-CAP-001", "PROTOCOL-RULE-CAP-002"],
+      "derivedType": "CapabilityProtocol",
+      "normalExampleIds": ["normal-cap"],
+      "invalidExampleIds": ["invalid-cap"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "NODE",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/node.schema.json",
+        "id": "urn:mojing:protocol:node:1.0.0",
+        "sha256": "5d6a909598bf0b2e72617b0bfd899dd5339b93f42eefff9acfa6c17584c7046b"
+      },
+      "ruleIds": ["PROTOCOL-RULE-NODE-001", "PROTOCOL-RULE-NODE-002"],
+      "derivedType": "NodeProtocol",
+      "normalExampleIds": ["normal-node"],
+      "invalidExampleIds": ["invalid-node"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "WORKFLOW",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/workflow.schema.json",
+        "id": "urn:mojing:protocol:workflow:1.0.0",
+        "sha256": "503e3251de1108889b4f863df29706167acb0abb88d49c678dee9b3537eab71f"
+      },
+      "ruleIds": ["PROTOCOL-RULE-WORKFLOW-001", "PROTOCOL-RULE-WORKFLOW-002"],
+      "derivedType": "WorkflowProtocol",
+      "normalExampleIds": ["normal-workflow"],
+      "invalidExampleIds": ["invalid-workflow"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "RUN",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/run.schema.json",
+        "id": "urn:mojing:protocol:run:1.0.0",
+        "sha256": "e50bf60564624a70c7537a5c648a6881c7c9d3e4ae94c52f61bd3cbc968c1fd0"
+      },
+      "ruleIds": ["PROTOCOL-RULE-RUN-001", "PROTOCOL-RULE-RUN-002"],
+      "derivedType": "RunProtocol",
+      "normalExampleIds": ["normal-run"],
+      "invalidExampleIds": ["invalid-run"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "CHANGE",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/change.schema.json",
+        "id": "urn:mojing:protocol:change:1.0.0",
+        "sha256": "01b76c57685738cd3e80c703494bb8698f9285c5c8eea87d1efd477ae5505b70"
+      },
+      "ruleIds": ["PROTOCOL-RULE-CHANGE-001", "PROTOCOL-RULE-CHANGE-002"],
+      "derivedType": "ChangeProtocol",
+      "normalExampleIds": ["normal-change"],
+      "invalidExampleIds": ["invalid-change"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "APP",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/app.schema.json",
+        "id": "urn:mojing:protocol:app:1.0.0",
+        "sha256": "7f9260d359371ae20d119d8f4bba067bcfbb3d02fcd7caca4db19e9d9c7a1944"
+      },
+      "ruleIds": ["PROTOCOL-RULE-APP-001", "PROTOCOL-RULE-APP-002"],
+      "derivedType": "AppProtocol",
+      "normalExampleIds": ["normal-app"],
+      "invalidExampleIds": ["invalid-app"],
+      "testEntry": "tools/validate-contracts.mjs"
+    },
+    {
+      "name": "CANVAS",
+      "version": "1.0.0",
+      "compatibilityRange": {
+        "kind": "exact-set",
+        "versions": ["1.0.0"]
+      },
+      "schema": {
+        "path": "schemas/canvas.schema.json",
+        "id": "urn:mojing:protocol:canvas:1.0.0",
+        "sha256": "c8810fe08378ca94b1355cc71cb0c9d7745334c56c7da20fb41514f4bf16581e"
+      },
+      "ruleIds": ["PROTOCOL-RULE-CANVAS-001", "PROTOCOL-RULE-CANVAS-002"],
+      "derivedType": "CanvasProtocol",
+      "normalExampleIds": ["normal-canvas"],
+      "invalidExampleIds": ["invalid-canvas"],
+      "testEntry": "tools/validate-contracts.mjs"
+    }
+  ],
+  "artifacts": {
+    "rules": {
+      "path": "rules/protocol-rules.json",
+      "sha256": "d6e9b50d1ce5037f3f53745aa3f2409449f39c5b8526ef4d497a4880897fb6cd"
+    },
+    "compatibility": {
+      "path": "compatibility/place-relation-decision.json",
+      "sha256": "8954b50b9c15cdcb58d9f5088cefa2e0698e3ce06b3776ea0f97714fb04f46a1"
+    },
+    "normalExamples": {
+      "path": "examples/normal-examples.json",
+      "sha256": "ce8b4105b3e9bf55d42946123f06fb850ed40c12553fd541193b761d1c542716"
+    },
+    "invalidExamples": {
+      "path": "examples/invalid-examples.json",
+      "sha256": "87ee504372dfd8f7bdce8df7d95d668a2234f8e4d9d9d30b40dcffb4a9304aa6"
+    },
+    "crossFamilyExamples": {
+      "path": "examples/cross-family-examples.json",
+      "sha256": "108d07002f97f29aa5131c094ba4c336f6564d6a7e53c3d0bd1d06149f74e4bb"
+    },
+    "generator": {
+      "path": "tools/generate-types.mjs",
+      "sha256": "2318bd162a54f1cdf9a0c19e778633d54a13b116bbf6ebb26a2b497eedb2ff75"
+    },
+    "validator": {
+      "path": "tools/validate-contracts.mjs",
+      "sha256": "3ba5e99cd2911e3a5e78125853a5bc8fce6f1ddfe1a5a54be424f26e4b7d9610"
+    },
+    "scopeVerifier": {
+      "path": "tools/verify-scope.mjs",
+      "sha256": "c137b67efe1deb7efd56214329dfa5e7f2e582215dc005fe2799bc44261c0627"
+    },
+    "derivedTypes": {
+      "path": "generated/protocol-types.ts",
+      "sha256": "5132b40893ecfd52117b60d8a2efa9fbac96e9637bc8242386e93a071495eeb7"
+    },
+    "documentation": {
+      "path": "docs/protocol.md",
+      "sha256": "05e07a4962d6ceb9df2ee263264409fa54353ac0363cf2225efe4cb704258fc6"
+    },
+    "readme": {
+      "path": "README.md",
+      "sha256": "6e77c78dcd94a1d765db3cb594b209c25d0c4902ffcc47f23cab832327fbab19"
+    }
+  }
+}

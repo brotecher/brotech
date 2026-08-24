@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/gateway-core",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": ["ReferenceEdgeProxy", "ReferenceOpenGateway"],
+  "types": [
+    "EdgeAuthorityLease",
+    "EdgeCommand",
+    "EdgeDispatchDecision",
+    "EdgeProxyAuditEvent",
+    "EdgeProxyPolicy",
+    "EdgeProxyTransport",
+    "EdgeTransportReceipt",
+    "EdgeValue",
+    "GatewayCapabilityToken",
+    "GatewayDecision",
+    "GatewayRequest"
+  ]
+}

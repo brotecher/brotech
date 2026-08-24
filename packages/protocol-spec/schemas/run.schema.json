@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mojing:protocol:run:1.0.0",
+  "title": "Mojing RUN Protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "workflowRef",
+    "nodeVersions",
+    "capabilityVersions",
+    "dataVersions",
+    "status",
+    "attempt",
+    "timeoutMilliseconds",
+    "retry",
+    "cancellation",
+    "usageCost",
+    "review",
+    "changeResult"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "workflowRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "nodeVersions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "capabilityVersions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "dataVersions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "status": {
+      "enum": [
+        "not-started",
+        "running",
+        "waiting-human-review",
+        "cancellation-requested",
+        "cancelled",
+        "succeeded",
+        "failed"
+      ]
+    },
+    "attempt": { "type": "integer", "minimum": 0 },
+    "error": {
+      "type": "object",
+      "required": ["code", "retryable"],
+      "additionalProperties": false,
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "retryable": { "type": "boolean" }
+      }
+    },
+    "timeoutMilliseconds": { "type": "integer", "minimum": 1 },
+    "retry": {
+      "type": "object",
+      "required": ["maxAttempts", "nextAttemptAllowed"],
+      "additionalProperties": false,
+      "properties": {
+        "maxAttempts": { "type": "integer", "minimum": 1 },
+        "nextAttemptAllowed": { "type": "boolean" }
+      }
+    },
+    "cancellation": {
+      "type": "object",
+      "required": ["requested", "confirmed", "lateResultPolicy"],
+      "additionalProperties": false,
+      "properties": {
+        "requested": { "type": "boolean" },
+        "confirmed": { "type": "boolean" },
+        "lateResultPolicy": { "const": "discard" }
+      }
+    },
+    "usageCost": {
+      "type": "object",
+      "required": ["amount", "unit", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "amount": { "type": "number", "minimum": 0 },
+        "unit": { "type": "string", "minLength": 1 },
+        "source": { "type": "string", "minLength": 1 }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["required", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "required": { "type": "boolean" },
+        "status": { "enum": ["not-required", "pending", "accepted", "rejected"] }
+      }
+    },
+    "changeResult": {
+      "type": "object",
+      "required": ["status"],
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["none", "candidate", "accepted", "rejected", "conflict"] },
+        "changeRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+      }
+    }
+  }
+}

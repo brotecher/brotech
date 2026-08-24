@@ -1,0 +1,172 @@
+{
+  "protocolVersion": "1.0.0",
+  "rules": [
+    {
+      "id": "PROTOCOL-RULE-PRT-ID-001",
+      "appliesTo": ["PRT-ID"],
+      "versions": ["1.0.0"],
+      "input": "identity reference plus actor/owner/project/reviewer roles",
+      "predicate": "stable-ref-roles-explicit",
+      "errorCode": "IDENTITY_ROLE_COLLAPSE",
+      "evidenceExamples": ["normal-prt-id", "invalid-prt-id"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CAP-001",
+      "appliesTo": ["CAP"],
+      "versions": ["1.0.0"],
+      "input": "sideEffect plus permission",
+      "predicate": "formal-effect-needs-explicit-permission",
+      "errorCode": "CAP_PERMISSION_INSUFFICIENT",
+      "evidenceExamples": ["normal-cap"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CAP-002",
+      "appliesTo": ["CAP"],
+      "versions": ["1.0.0"],
+      "input": "usageCost",
+      "predicate": "cost-source-explicit",
+      "errorCode": "CAP_COST_SOURCE_MISSING",
+      "evidenceExamples": ["normal-cap", "invalid-cap"]
+    },
+    {
+      "id": "PROTOCOL-RULE-NODE-001",
+      "appliesTo": ["NODE"],
+      "versions": ["1.0.0"],
+      "input": "inputPorts and outputPorts",
+      "predicate": "port-names-unique-and-typed",
+      "errorCode": "NODE_PORT_CONFLICT",
+      "evidenceExamples": ["normal-node"]
+    },
+    {
+      "id": "PROTOCOL-RULE-NODE-002",
+      "appliesTo": ["NODE"],
+      "versions": ["1.0.0"],
+      "input": "sideEffect/cost/retry/cache/idempotency policies",
+      "predicate": "node-policies-coherent",
+      "errorCode": "NODE_POLICY_INCOHERENT",
+      "evidenceExamples": ["normal-node", "invalid-node"]
+    },
+    {
+      "id": "PROTOCOL-RULE-WORKFLOW-001",
+      "appliesTo": ["WORKFLOW"],
+      "versions": ["1.0.0"],
+      "input": "nodes, connections and entryNodeId",
+      "predicate": "workflow-graph-resolves",
+      "errorCode": "WORKFLOW_GRAPH_UNRESOLVED",
+      "evidenceExamples": ["normal-workflow", "invalid-workflow"]
+    },
+    {
+      "id": "PROTOCOL-RULE-WORKFLOW-002",
+      "appliesTo": ["WORKFLOW"],
+      "versions": ["1.0.0"],
+      "input": "reviewPoints and changeDecisionPath",
+      "predicate": "workflow-review-precedes-change-decision",
+      "errorCode": "WORKFLOW_REVIEW_MISSING",
+      "evidenceExamples": ["normal-workflow"]
+    },
+    {
+      "id": "PROTOCOL-RULE-RUN-001",
+      "appliesTo": ["RUN"],
+      "versions": ["1.0.0"],
+      "input": "workflow/node/capability/data version locks",
+      "predicate": "run-locks-complete",
+      "errorCode": "RUN_VERSION_LOCK_INCOMPLETE",
+      "evidenceExamples": ["normal-run", "invalid-run"]
+    },
+    {
+      "id": "PROTOCOL-RULE-RUN-002",
+      "appliesTo": ["RUN"],
+      "versions": ["1.0.0"],
+      "input": "status, cancellation, review and changeResult",
+      "predicate": "run-state-coherent",
+      "errorCode": "RUN_STATE_INCOHERENT",
+      "evidenceExamples": ["normal-run"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CHANGE-001",
+      "appliesTo": ["CHANGE"],
+      "versions": ["1.0.0"],
+      "input": "decision, reviewerRef, permission and formalWrite",
+      "predicate": "accepted-change-needs-reviewer-and-write-permission",
+      "errorCode": "CHANGE_ACCEPTANCE_UNAUTHORIZED",
+      "evidenceExamples": ["normal-change", "invalid-change"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CHANGE-002",
+      "appliesTo": ["CHANGE"],
+      "versions": ["1.0.0"],
+      "input": "non-accepted decision and formalWrite",
+      "predicate": "nonaccepted-change-does-not-write",
+      "errorCode": "CHANGE_NONACCEPTED_WRITE",
+      "evidenceExamples": [
+        "normal-change",
+        "cross-rejected",
+        "cross-permission-failure",
+        "cross-version-conflict"
+      ]
+    },
+    {
+      "id": "PROTOCOL-RULE-APP-001",
+      "appliesTo": ["APP"],
+      "versions": ["1.0.0"],
+      "input": "entryWorkflowRef, dependencies and compatibility",
+      "predicate": "app-entry-is-locked-compatible-dependency",
+      "errorCode": "APP_ENTRY_INCOMPATIBLE",
+      "evidenceExamples": ["normal-app", "invalid-app"]
+    },
+    {
+      "id": "PROTOCOL-RULE-APP-002",
+      "appliesTo": ["APP"],
+      "versions": ["1.0.0"],
+      "input": "lifecycle state and rollbackVersion",
+      "predicate": "app-lifecycle-has-rollback",
+      "errorCode": "APP_ROLLBACK_MISSING",
+      "evidenceExamples": ["normal-app"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CANVAS-001",
+      "appliesTo": ["CANVAS"],
+      "versions": ["1.0.0"],
+      "input": "kernel domain/vendor references",
+      "predicate": "canvas-kernel-is-domain-and-vendor-neutral",
+      "errorCode": "CANVAS_KERNEL_COUPLED",
+      "evidenceExamples": ["normal-canvas", "invalid-canvas"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CANVAS-002",
+      "appliesTo": ["CANVAS"],
+      "versions": ["1.0.0"],
+      "input": "layout state and workflowAdapter",
+      "predicate": "layout-change-does-not-create-domain-change",
+      "errorCode": "CANVAS_LAYOUT_DOMAIN_CHANGE",
+      "evidenceExamples": ["normal-canvas"]
+    },
+    {
+      "id": "PROTOCOL-RULE-CROSS-001",
+      "appliesTo": ["PRT-ID", "CAP", "NODE", "WORKFLOW", "RUN", "CHANGE", "APP", "CANVAS"],
+      "versions": ["1.0.0"],
+      "input": "cross-family scenario formalBefore/formalAfter",
+      "predicate": "formal-data-changes-only-after-reviewed-acceptance",
+      "errorCode": "CROSS_FORMAL_DATA_UNSAFE",
+      "evidenceExamples": [
+        "cross-happy",
+        "cross-rejected",
+        "cross-permission-failure",
+        "cross-version-conflict",
+        "cross-invalid-output",
+        "cross-candidate-only",
+        "cross-reviewer-accepted",
+        "cross-timeout-cancelled"
+      ]
+    },
+    {
+      "id": "PROTOCOL-RULE-CROSS-002",
+      "appliesTo": ["PRT-ID", "CAP", "NODE", "WORKFLOW", "RUN", "CHANGE", "APP", "CANVAS"],
+      "versions": ["1.0.0"],
+      "input": "required compatibility paths",
+      "predicate": "required-paths-have-no-unknown",
+      "errorCode": "CROSS_REQUIRED_PATH_UNKNOWN",
+      "evidenceExamples": ["cross-happy"]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/adapter-sdk",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "adapterContractVersion",
+    "adapterSdkVersion",
+    "compareNativeSource",
+    "createFixedAdapterFixtures",
+    "defineAdapter",
+    "evaluateAdapterCandidate",
+    "runAdapterConformance"
+  ],
+  "types": [
+    "AdapterCandidate",
+    "AdapterCandidateEvidence",
+    "AdapterCapability",
+    "AdapterConformanceReport",
+    "AdapterDescriptor",
+    "AdapterRequest",
+    "AdapterResult",
+    "AdapterValue",
+    "NativeSourceRecord",
+    "NativeSourceSnapshot",
+    "PublicAdapter",
+    "ThreeWayDifference"
+  ]
+}

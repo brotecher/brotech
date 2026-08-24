@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mojing:protocol:app:1.0.0",
+  "title": "Mojing APP Protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "entryWorkflowRef",
+    "dependencies",
+    "permissions",
+    "compatibility",
+    "publishStatus",
+    "lifecycle",
+    "dataOwnership"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "entryWorkflowRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "permissions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "compatibility": {
+      "type": "object",
+      "required": ["protocolVersion", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "protocolVersion": { "const": "1.0.0" },
+        "status": { "enum": ["compatible", "incompatible", "unknown"] }
+      }
+    },
+    "publishStatus": { "enum": ["draft", "validated", "approved", "withdrawn"] },
+    "lifecycle": {
+      "type": "object",
+      "required": ["state", "dataOwnerRef", "rollbackVersion"],
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": ["installed", "enabled", "disabled", "upgraded", "rolled-back", "uninstalled"]
+        },
+        "dataOwnerRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+        "rollbackVersion": { "type": "string", "minLength": 1 }
+      }
+    },
+    "dataOwnership": { "enum": ["app-owned", "project-owned", "user-owned"] }
+  }
+}

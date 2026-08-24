@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/comfy-api-client",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "assessComfyFidelity",
+    "canonicalizeComfyJson",
+    "captureComfySource",
+    "comfyApiClientVersion",
+    "createComfyApiClient",
+    "fixedComfyCompatibility",
+    "fixedComfyFixtures",
+    "reimportComfySource"
+  ],
+  "types": [
+    "ComfyApiClient",
+    "ComfyCompatibilityDeclaration",
+    "ComfyFidelityReport",
+    "ComfyHttpRequest",
+    "ComfyHttpResponse",
+    "ComfyHttpTransport",
+    "ComfyJson",
+    "ComfyReimportResult",
+    "ComfySourceKind",
+    "ComfySourceSnapshot"
+  ]
+}

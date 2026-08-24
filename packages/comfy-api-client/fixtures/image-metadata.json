@@ -1,0 +1,4 @@
+{
+  "workflow": "{\"nodes\":[{\"id\":1,\"type\":\"FixtureImageNode\"}],\"links\":[],\"fixture:unknown\":{\"preserved\":true}}",
+  "fixture:image-field": "preserved"
+}

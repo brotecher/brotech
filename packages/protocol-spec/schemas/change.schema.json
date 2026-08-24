@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mojing:protocol:change:1.0.0",
+  "title": "Mojing CHANGE Protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "targets",
+    "baseVersion",
+    "proposedChanges",
+    "sourceRef",
+    "checks",
+    "reviewerRef",
+    "permission",
+    "decision",
+    "conflicts",
+    "idempotency",
+    "formalWrite"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    },
+    "baseVersion": { "type": "string", "minLength": 1 },
+    "proposedChanges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "operation", "valueJson"],
+        "additionalProperties": false,
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "operation": { "enum": ["add", "replace", "remove"] },
+          "valueJson": { "type": "string" }
+        }
+      }
+    },
+    "sourceRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["ruleId", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "ruleId": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["passed", "failed"] }
+        }
+      }
+    },
+    "reviewerRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "permission": { "type": "string", "minLength": 1 },
+    "decision": { "enum": ["candidate", "accepted", "rejected", "conflict"] },
+    "conflicts": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "idempotency": {
+      "type": "object",
+      "required": ["key", "effectIdentity"],
+      "additionalProperties": false,
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "effectIdentity": { "type": "string", "minLength": 1 }
+      }
+    },
+    "formalWrite": { "type": "boolean" }
+  }
+}

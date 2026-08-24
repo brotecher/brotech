@@ -1,0 +1,42 @@
+{
+  "name": "@mojing/agent-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "tests",
+    "tsconfig.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "DCO.txt",
+    "SOURCE.md",
+    "PUBLIC_EXPORTS.json",
+    "SBOM.spdx.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "demo": "node dist/demo.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test:unit": "vitest run tests/unit.test.ts"
+  },
+  "dependencies": {
+    "@mojing/protocol-spec": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.3",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:mojing:protocol:workflow:1.0.0",
+  "title": "Mojing WORKFLOW Protocol",
+  "type": "object",
+  "required": [
+    "id",
+    "inputs",
+    "outputs",
+    "nodes",
+    "connections",
+    "entryNodeId",
+    "failurePaths",
+    "reviewPoints",
+    "changeDecisionPath",
+    "dependencyLock"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "./prt-id.schema.json#/$defs/stableRef" },
+    "inputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/port" } },
+    "outputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/port" } },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["nodeId", "nodeRef"],
+        "additionalProperties": false,
+        "properties": {
+          "nodeId": { "type": "string", "minLength": 1 },
+          "nodeRef": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+        }
+      }
+    },
+    "connections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["fromNode", "fromPort", "toNode", "toPort", "typeRef"],
+        "additionalProperties": false,
+        "properties": {
+          "fromNode": { "type": "string", "minLength": 1 },
+          "fromPort": { "type": "string", "minLength": 1 },
+          "toNode": { "type": "string", "minLength": 1 },
+          "toPort": { "type": "string", "minLength": 1 },
+          "typeRef": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "entryNodeId": { "type": "string", "minLength": 1 },
+    "failurePaths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "reviewPoints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["nodeId", "reviewerRequired"],
+        "additionalProperties": false,
+        "properties": {
+          "nodeId": { "type": "string", "minLength": 1 },
+          "reviewerRequired": { "type": "boolean" }
+        }
+      }
+    },
+    "changeDecisionPath": { "type": "string", "minLength": 1 },
+    "dependencyLock": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "./prt-id.schema.json#/$defs/stableRef" }
+    }
+  },
+  "$defs": {
+    "port": {
+      "type": "object",
+      "required": ["name", "typeRef", "required"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "typeRef": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" }
+      }
+    }
+  }
+}

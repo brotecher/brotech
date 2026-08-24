@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/capability-matcher",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "CapabilityManagementRegistry",
+    "capabilityManagementSchemaVersion",
+    "evaluateCapabilityRoute"
+  ],
+  "types": [
+    "CapabilityFeatureClaim",
+    "CapabilityLifecycleState",
+    "CapabilityRouteDecision",
+    "CapabilityRouteRequirement",
+    "CapabilityVerificationStatus",
+    "ManagedCapability",
+    "ManagedCapabilityKind"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "mj.public-exports/v1",
+  "package": "@mojing/agent-runtime",
+  "artifactClass": "executable-open-middleware",
+  "entrypoint": ".",
+  "runtime": [
+    "AgentRuntime",
+    "AgentToolRegistry",
+    "agentModelPlanRequestSchemaVersion",
+    "agentModelPlanSchemaVersion",
+    "agentRuntimeCheckpointSchemaVersion",
+    "agentRuntimeResultSchemaVersion",
+    "agentRuntimeVersion",
+    "agentTaskPackageSchemaVersion",
+    "createExternalAgentModelProvider",
+    "externalModelInvocationSchemaVersion",
+    "readOnlyAgentReviewSchemaVersion",
+    "requestAgentModelPlan",
+    "requestReadOnlyAgentReview"
+  ],
+  "types": [
+    "AgentModelPlan",
+    "AgentModelPlanRequest",
+    "AgentModelProvider",
+    "AgentModelProviderDescriptor",
+    "AgentModelTaskKind",
+    "AgentRuntimeCheckpoint",
+    "AgentRuntimeEvent",
+    "AgentRuntimeResult",
+    "AgentRuntimeStatus",
+    "AgentTaskLimit",
+    "AgentTaskPackage",
+    "AgentTaskStep",
+    "AgentValue",
+    "ExternalModelCompletion",
+    "ExternalModelInvocation",
+    "ExternalModelInvoker",
+    "ReadOnlyAgentReview",
+    "RegisteredAgentTool"
+  ]
+}
